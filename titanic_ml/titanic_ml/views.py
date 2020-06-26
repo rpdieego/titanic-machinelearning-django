@@ -8,6 +8,7 @@ def home(request):
 def results(request):
 
     # get data from form
+    user_input_name = request.GET['name']
     user_input_age = int(request.GET['age'])
     user_input_sex = int(request.GET['sex'])
     user_input_pclass = int(request.GET['pclass'])
@@ -46,6 +47,13 @@ def results(request):
         ml_prediction_string = 'Error'
 
 
-    return render(request, 'result.html', {'user_age':user_input_age,
-                                           'prediction':prediction,
-                                           'ml_prediction':ml_prediction_string})
+    return render(request, 'result.html', {'ml_prediction':ml_prediction_string,
+                                           'user_name':user_input_name,
+                                           'user_age':user_input_age,
+                                           'user_sex':user_input_sex,
+                                           'user_pclass':user_input_pclass,
+                                           'user_sibsp':user_input_sibsp,
+                                           'user_parch':user_input_parch,
+                                           'user_fare':user_input_fare,
+                                           'user_embarked':user_input_embarked
+                                           })

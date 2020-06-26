@@ -2,6 +2,15 @@ body{
     background-color: gray;
 }
 
-h1{
-    color:white;
+#inputForm{
+    text-align: center;
+    background-color: rgba(5, 2, 26, 0.795);
+    color: lightcyan;
+    font-family: sans-serif;
+    padding-bottom: 10px;
+    scroll-padding-top: 10px;
+}
+
+#siteHeader{
+    background-image: url('https://miro.medium.com/max/3840/1*ONRawnQ6ZUF15TaIIMw7AQ.jpeg')
 }

@@ -3,50 +3,110 @@
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% load bootstrap4 %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titanic Prediction</title>
 </head>
 <body>
-    <h1>Working</h1>
-    <br>
 
-    <h3>Get your titanic predictions here!</h3>
-    <p>Enter in details of a made up person on the titanic voyage </p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Titanic Prediction  </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Exploratory Data Analysis and Training</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <br>
-    <p>We will output a prediction!</p>
+      <!-- Jumbotron | Explaining the app -->
+      <div id="siteHeader" class="jumbotron">
+        <h1 class="display-4">Titanic Predictions</h1>
+        <p class="lead">Would you have survived from the most famous shipwreck in our history?.</p>
+        <hr class="my-4">
+        <p> Model derived from passenger's data that is able to predict if you would have survived or not to the titanic trafic accident.</p>
+        <p> Just input the requested data below and check if you would be amoung the survivours or not!</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more about the machine learning process!</a>
+      </div>
 
-    <br>
-    <form action="{% url 'results' %}">
-        {% csrf_token %}
-            <p>Passenger Age:</p>
-            <input type="text" name="age">
-            <p>Passenger Sex:</p>
-            <input type="text" name="sex">
-            <p>Passenger Ticket Class:</p>
-            <input type="text" name="pclass">
-            <p>Passenger Quantity of spouses / sibblings aboard the Titanic:</p>
-            <input type="text" name="sibsp">
-            <p>Passenger Quantity of parents / children aboard the Titanic:</p>
-            <input type="text" name="parch">
-            <p>Passenger Ticket Fare:</p>
-            <input type="text" name="fare">
-            <p>Passenger Port of Embarkation:</p>
-            <input type="text" name="embarked">
-            <br>
-            <br>
-            <input type="submit">
-    </form>
+      <!-- Jumbotron | Predictions -->
+      <div class="jumbotron">
+        <h3 class="display-4">Get your titanic predictions here!</h3>
+        <p class="lead">Enter in details of a made up person on the titanic voyage:</p>
+        <hr class="my-4">
+        <div id="inputForm">
+            <form action="{% url 'results' %}">
+                {% csrf_token %}
+                    <p>Name:</p>
+                    <input type="text" name="name">
+                    <p>Passenger Age:</p>
+                    <input type="text" name="age">                    
+                    <p>Passenger Sex:</p>
+                    <select name="sex">
+                        <option value='0'>Female</option>
+                        <option value='1'>Male</option>
+                    </select>
+                    <br>
+                    <p>Passenger Ticket Class:</p>
+                    <select name="pclass">
+                        <option value='0'>First Class</option>
+                        <option value='1'>Second Class</option>
+                        <option value='2'>Third Class</option>
+                    </select>
+                    <br>
+                    <p>Passenger Quantity of spouses / sibblings aboard the Titanic:</p>
+                    <input type="text" name="sibsp">
+                    <p>Passenger Quantity of parents / children aboard the Titanic:</p>
+                    <input type="text" name="parch">
+                    <p>Passenger Ticket Fare (U$D):</p>
+                    <input type="text" name="fare">
+                    <p>Passenger Port of Embarkation:</p>
+                    <select name="embarked">
+                        <option value='C'>Cherbourg</option>
+                        <option value='Q'>Queenstown</option>
+                        <option value='S'>Southampton</option>
+                    </select>
+                    <br>
+                    <br>
+                    <input type="submit">
+            </form>
+        </div>
 
-    <br>
+        <br>
+        <button type="button" onclick=clickedTest()>Test JavaScript</button>        
+      </div> 
+
     
-    <button type="button" onclick=clickedTest()>Test JavaScript</button>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
 
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 :
+            <a href="https://mdbootstrap.com/"> Diego Rosa</a>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
 
     <!-- JavaScript-->
-
     <script src="{% static 'main.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
 </body>
 </html>
