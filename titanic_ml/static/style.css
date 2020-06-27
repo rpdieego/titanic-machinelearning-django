@@ -14,3 +14,23 @@ body{
 #siteHeader{
     background-image: url('https://miro.medium.com/max/3840/1*ONRawnQ6ZUF15TaIIMw7AQ.jpeg')
 }
+
+#resultsBanner{
+    background-color: rgb(24, 25, 26);
+    color: whitesmoke;
+    padding-bottom: 10px;
+    scroll-padding-top: 10px;
+    text-align: center;
+}
+
+#resultsTitle{
+    text-align: center;
+}
+
+#resultImage{
+    background-image: url('https://miro.medium.com/max/3840/1*ONRawnQ6ZUF15TaIIMw7AQ.jpeg');
+    height: 200px;
+    width: 500px;
+    color: tomato;
+
+}

@@ -41,7 +41,7 @@ def results(request):
     # Label it into a string
     if ml_prediction == 1:
         ml_prediction_string = 'Survived'
-    elif ml_prediction == 1:
+    elif ml_prediction == 0:
         ml_prediction_string = 'Have not Survived'
     else:
         ml_prediction_string = 'Error'
