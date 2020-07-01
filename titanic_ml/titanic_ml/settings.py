@@ -25,8 +25,8 @@ SECRET_KEY = 'zh&nscx64x7uln7_o^1=taa#!p#cu*+y#8jmontpc6-yu(1nf('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = ['18.231.149.223']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.231.149.223']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "bootstrap4",
     "passengerManagement",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'titanic_ml.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates','passengerManagement/templates'],
+        'DIRS': ['templates','passengerManagement/templates','accounts/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +126,5 @@ import os.path
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join('static'),)
+
+LOGIN_REDIRECT_URL = '/accounts/treasure/'

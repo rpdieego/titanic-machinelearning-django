@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as views
 from passengerManagement import views as views_pM
+from accounts import views as views_acc
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('results/', views.results, name='results'),
     path('passengers/',include('passengerManagement.urls'), name='passengers'),
+    path('accounts/',include('accounts.urls'), name='accounts'),
 ]
