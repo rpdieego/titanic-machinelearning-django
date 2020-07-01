@@ -41,6 +41,7 @@
                 <th>Passenger Age</th>
                 <th>Embarked?</th>
                 <th>Delete?</th>
+                <th>Dynamic Link</th>
             </tr>
          </thead>       
 
@@ -51,7 +52,8 @@
                 <td>{{passenger.passenger_name}}</td>
                 <td>{{passenger.passenger_age}}</td>
                 <td>{{passenger.completed}}</td>
-                <td><a href="{% url 'delete' passenger.id %}">Delete</a></td>        
+                <td><a href="{% url 'delete' passenger.id %}">Delete</a></td>
+                <td><a href="{% url 'posts' passenger.id %}">Link to # {{passenger.id}}</a></td>        
             </tr>
             {% endfor %}
          </tbody>

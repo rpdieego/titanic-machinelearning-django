@@ -26,3 +26,8 @@ def delete(request, list_id):
     item.delete()
     messages.success(request, ('Item deleted ..'))
     return redirect('pM_home')
+
+
+def posts(request, pk_test):
+    post = PassengerDB.objects.get(pk=pk_test)
+    return render(request, 'posts.html', {'post':post})
